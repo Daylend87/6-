@@ -1,67 +1,77 @@
-﻿namespace TriangleApp.Models
+namespace TriangleApp.Models
 {
     public class Triangle
     {
-        private double _sideA;
-        private double _sideB;
-        private double _sideC;
+        private double a;
+        private double b;
+        private double c;
 
-        public double SideA
+        public double A
         {
-            get => _sideA;
-            private set
+            get 
+            { 
+                return a;
+            }
+            set
             {
-                if (value <= 0)
-                    throw new ArgumentException("Сторона A должна быть больше нуля.");
-                _sideA = value;
+                if (value > 0)
+                    a = value;
+                else
+                    throw new ArgumentException("Длина стороны должна быть положительной.");
             }
         }
 
-        public double SideB
+        public double B
         {
-            get => _sideB;
-            private set
+            get 
             {
-                if (value <= 0)
-                    throw new ArgumentException("Сторона B должна быть больше нуля.");
-                _sideB = value;
+                return b;
+            }
+            set
+            {
+                if (value > 0)
+                    b = value;
+                else
+                    throw new ArgumentException("Длина стороны должна быть положительной.");
             }
         }
 
-        public double SideC
+        public double C
         {
-            get => _sideC;
-            private set
+            get 
             {
-                if (value <= 0)
-                    throw new ArgumentException("Сторона C должна быть больше нуля.");
-                _sideC = value;
+                    return c;
+            }
+            set
+            {
+                if (value > 0)
+                    c = value;
+                else
+                    throw new ArgumentException("Длина стороны должна быть положительной.");
             }
         }
 
         public Triangle(double a, double b, double c)
         {
-            SideA = a;
-            SideB = b;
-            SideC = c;
+            if (a <= 0 || b <= 0 || c <= 0)
+                throw new ArgumentException("Длины сторон должны быть положительными.");
+            this.a = a;
+            this.b = b;
+            this.c = c;
         }
 
-        public Triangle() : this(1, 1, 1)
+        public Triangle()
         {
-        }
-
-        public bool Exists()
-        {
-            return (SideA + SideB > SideC) &&
-                   (SideA + SideC > SideB) &&
-                   (SideB + SideC > SideA);
+            a = 0;
+            b = 0;
+            c = 0;
         }
 
         public override string ToString()
         {
-            return $"Треугольник: A = {SideA}, B = {SideB}, C = {SideC}";
+            return $"Треугольник со сторонами: a={a}, b={b}, c={c}";
         }
     }
-}
 
+}
 

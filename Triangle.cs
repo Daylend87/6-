@@ -8,7 +8,10 @@
 
         public double A
         {
-            get { return a; }
+            get 
+            { 
+                return a;
+            }
             set
             {
                 if (value > 0)
@@ -20,7 +23,10 @@
 
         public double B
         {
-            get { return b; }
+            get 
+            { 
+                return b; 
+            }
             set
             {
                 if (value > 0)
@@ -32,7 +38,10 @@
 
         public double C
         {
-            get { return c; }
+            get 
+            { 
+                return c; 
+            }
             set
             {
                 if (value > 0)
